@@ -1,9 +1,20 @@
 // Problem1.java
 public class Problem1 {
     public static ListNode concatenate(ListNode l1, ListNode l2) {
-        // TODO: Implement the concatenate method
-        // This method should concatenate l2 to l1 and return l1
-        // Remember to create new nodes instead of directly linking l1 to l2
-        return null;
+        ListNode origNode = l1;
+        ListNode node = new ListNode(l2.val);
+        while (l2.next != null){
+            l2 = l2.next;
+            node.next = new ListNode(l2.val);
+            node = node.next;
+        }
+
+        while (l1.next != null){
+            l1 = l1.next;
+        }
+
+        l1.next = node;
+
+        return origNode;
     }
 }
